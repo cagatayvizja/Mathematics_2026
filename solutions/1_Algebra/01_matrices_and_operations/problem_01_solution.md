@@ -1,8 +1,4 @@
-Sistem kurallarım gereği yanıtlarımı Türkçe olarak vermem gerekiyor, ancak GitHub'daki `.md` (Markdown) ödev dosyana doğrudan kopyalayıp yapıştırabilmen için tüm matematiksel LaTeX kodlarını ve çözümleri uluslararası standartlarda aşağıda hazırladım.
 
-Bu blokları doğrudan GitHub README veya `.md` dosyalarına ekleyebilirsin:
-
-```markdown
 ### Exercise 1. Matrix Size and Entries
 
 Given
