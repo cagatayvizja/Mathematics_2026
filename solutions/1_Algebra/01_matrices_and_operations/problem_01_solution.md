@@ -1,357 +1,75 @@
-# Matrices and Basic Operations
+# Matrices and Operations
 
-## Goal of the Set
+## Exercise 1. Matrix Dimensions, Entries, Rows, and Columns
 
-After completing this set, the student should understand what a matrix is, when basic operations can be performed, how matrix multiplication and matrix-vector multiplication work, and how matrices describe simple linear transformations.
+## Question
 
-The goal is not to perform many similar calculations. Each exercise presents a different aspect of working with matrices.
-
-## How to Work Through the Exercises
-
-For each exercise, prepare a solution containing at least:
-
-- the result,
-- the main steps,
-- a brief explanation of the property or method used,
-- a mathematical verification of the result, when possible.
-
----
-
-## Basic Exercises
-
-### Exercise 1. Matrix Size and Entries
-Given
+Consider the two matrices
 
 $$
-A = 
-\begin{pmatrix}
-2 & -1 & 3 \\
-0 & 4 & 5 \\
-\end{pmatrix}, \qquad B = 
-\begin{pmatrix}
-1 & 0 \\
--2 & 3 \\
-4 & 1 \\
-\end{pmatrix}.
+A = \begin{pmatrix} 2 & -1 & 4 \\ 0 & 5 & -3 \end{pmatrix} \quad \text{and} \quad B = \begin{pmatrix} 1 & 3 \\ -2 & 4 \\ 6 & 0 \end{pmatrix}.
 $$
 
-1. State the sizes of matrices $A$ and $B$.
-2. Read off the entries $a_{12}$, $a_{23}$, $b_{21}$, and $b_{32}$.
-3. Write the second row of $A$ and the first column of $B$ as vectors.
+Determine the size (dimensions) of each matrix, find the entries $a_{12}$, $a_{23}$, $b_{21}$, and $b_{32}$, and write out the second row of $A$ and the second column of $B$.
 
-> **Why this exercise:** builds basic fluency with matrix notation, indices, rows, and columns.
+## Solution
 
-### Exercise 2. Addition and Scalar Multiplication
-For
+**Step 1: Determine the size of each matrix**
 
-$$
-A = 
-\begin{pmatrix}
-1 & 2 \\
--1 & 3 \\
-\end{pmatrix}, \qquad B = 
-\begin{pmatrix}
-4 & -2 \\
-0 & 5 \\
-\end{pmatrix}
-$$
+The size of a matrix is written as $m \times n$, where $m$ is the number of rows and $n$ is the number of columns:
 
-compute
+- Matrix $A$ has $2$ horizontal rows and $3$ vertical columns, so its size is
 
 $$
-A+B, \qquad A-B, \qquad 3A-2B.
+\text{size}(A) = 2 \times 3.
 $$
 
-Explain why matrix addition is possible only for matrices of the same size.
-
-> **Why this exercise:** reinforces entry-by-entry operations and the importance of compatible dimensions.
-
-### Exercise 3. When Can Matrices Be Multiplied?
-The matrix sizes are
+- Matrix $B$ has $3$ horizontal rows and $2$ vertical columns, so its size is
 
 $$
-A_{2\times3}, \qquad B_{3\times4}, \qquad C_{4\times2}, \qquad D_{2\times2}.
+\text{size}(B) = 3 \times 2.
 $$
 
-For the products
+**Step 2: Identify the four requested entries**
+
+Using the standard index notation $m_{ij}$, where $i$ denotes the row index and $j$ denotes the column index:
+
+- The entry $a_{12}$ lies in row $1$, column $2$ of $A$:
 
 $$
-AB, \ BA, \ BC, \ CB, \ AC, \ CA, \ AD, \ DA
+a_{12} = -1.
 $$
 
-determine whether they are defined. If so, state the size of the result. Justify each decision using the dimension compatibility condition.
-
-> **Why this exercise:** forces an understanding of dimension compatibility before carrying out any calculation.
-
-### Exercise 4. Matrix Multiplication and Noncommutativity
-For
+- The entry $a_{23}$ lies in row $2$, column $3$ of $A$:
 
 $$
-A = 
-\begin{pmatrix}
-1 & 2 \\
-0 & 1 \\
-\end{pmatrix}, \qquad B = 
-\begin{pmatrix}
-2 & 0 \\
-3 & 1 \\
-\end{pmatrix}
+a_{23} = -3.
 $$
 
-compute $AB$ and $BA$. Is $AB=BA$? Use this example to explain what noncommutativity of matrix multiplication means.
-
-> **Why this exercise:** shows one of the most important differences between matrix multiplication and multiplication of numbers.
-
-### Exercise 5. Matrix Times Vector
-Let
+- The entry $b_{21}$ lies in row $2$, column $1$ of $B$:
 
 $$
-A = 
-\begin{pmatrix}
-2 & -1 \\
-1 & 3 \\
-\end{pmatrix}, \qquad x = 
-\begin{pmatrix}
-4 \\
-2 \\
-\end{pmatrix}.
+b_{21} = -2.
 $$
 
-Compute $Ax$. Then express $Ax$ as a linear combination of the columns of $A$, with coefficients coming from the vector $x$.
-
-> **Why this exercise:** shows that multiplying a matrix by a vector can be understood as a linear combination of the matrix columns.
-
-### Exercise 6. Transpose
-For
+- The entry $b_{32}$ lies in row $3$, column $2$ of $B$:
 
 $$
-A = 
-\begin{pmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-\end{pmatrix}, \qquad B = 
-\begin{pmatrix}
-1 & 0 \\
-2 & 1 \\
--1 & 3 \\
-\end{pmatrix}
+b_{32} = 0.
 $$
 
-compute $A^T$, $B^T$, and $AB$. Then verify in this example that
+**Step 3: Extract the requested row and column vectors**
+
+Reading across the second horizontal row of $A$ produces the $1 \times 3$ row vector:
 
 $$
-(AB)^T = B^TA^T.
+\mathbf{r}_2(A) = \begin{pmatrix} 0 & 5 & -3 \end{pmatrix}.
 $$
 
-> **Why this exercise:** teaches transposition and an important property that reverses the order of factors.
-
-### Exercise 7. Identity Matrix, Zero Matrix, and Powers
-For
+Reading down the second vertical column of $B$ produces the $3 \times 1$ column vector:
 
 $$
-A = 
-\begin{pmatrix}
-2 & 1 \\
-0 & 2 \\
-\end{pmatrix}
+\mathbf{c}_2(B) = \begin{pmatrix} 3 \\ 4 \\ 0 \end{pmatrix}.
 $$
 
-compute
-
-$$
-AI, \qquad IA, \qquad A+0, \qquad A^2, \qquad A^3.
-$$
-
-Explain the roles of the matrices $I$ and $0$, and describe the pattern you observe in successive powers of $A$.
-
-> **Why this exercise:** organizes the roles of neutral elements and reveals regularity in successive powers of a matrix.
-
-### Exercise 8. Row Operations and Their Reversibility
-For
-
-$$
-A = 
-\begin{pmatrix}
-1 & 2 & -1 \\
-2 & 4 & 1 \\
--1 & 1 & 3 \\
-\end{pmatrix}
-$$
-
-perform, in order:
-
-1. $R_2 \leftarrow R_2-2R_1$,
-2. $R_3 \leftarrow R_3+R_1$,
-3. interchange $R_2$ and $R_3$.
-
-Write the matrix after each step. Then, for each of the three operations, state an operation that reverses it.
-
-> **Why this exercise:** prepares for elimination by showing that row operations are controlled and reversible transformations of a matrix.
-
-### Exercise 9. Composing Transformations
-Let
-
-$$
-S = 
-\begin{pmatrix}
-2 & 0 \\
-0 & 1 \\
-\end{pmatrix}, \qquad R = 
-\begin{pmatrix}
-0 & -1 \\
-1 & 0 \\
-\end{pmatrix}.
-$$
-
-The matrix $S$ describes nonuniform scaling, while $R$ describes a $90^\circ$ counterclockwise rotation.
-For
-
-$$
-x = 
-\begin{pmatrix}
-1 \\
-2 \\
-\end{pmatrix}
-$$
-
-compute $RSx$ and $SRx$. Compare the results and explain geometrically why the order of these transformations matters.
-
-> **Why this exercise:** interprets matrix multiplication as composition of transformations.
-
-### Exercise 10. Columns of a Matrix Product
-Given
-
-$$
-A = 
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1 \\
-\end{pmatrix}, \qquad B = 
-\begin{pmatrix}
-1 & 2 \\
--1 & 0 \\
-3 & 1 \\
-\end{pmatrix}.
-$$
-
-Denote the columns of $B$ by $b_1, b_2$.
-
-1. Compute $Ab_1$ and $Ab_2$.
-2. Compute the matrix $AB$.
-3. Compare the results and explain why the columns of $AB$ are exactly the vectors $Ab_1$ and $Ab_2$.
-
-> **Why this exercise:** extends the interpretation of matrix-vector multiplication to a full product of two matrices instead of simply repeating another $Ax$ exercise.
-
----
-
-## More Challenging Exercises
-
-### Exercise 11. When Do Matrices Commute?
-Given
-
-$$
-A = 
-\begin{pmatrix}
-1 & 1 \\
-0 & 1 \\
-\end{pmatrix}, \qquad B = 
-\begin{pmatrix}
-a & b \\
-c & d \\
-\end{pmatrix}.
-$$
-
-Find the conditions on $a, b, c, d$ under which $AB=BA$. Describe the general form of all such matrices $B$.
-
-> **Why this exercise:** deepens the idea of noncommutativity by finding the conditions under which commutativity does hold.
-
-### Exercise 12. Formula for a Matrix Power
-Let
-
-$$
-A = 
-\begin{pmatrix}
-1 & 1 \\
-0 & 1 \\
-\end{pmatrix}.
-$$
-
-Compute $A^2$, $A^3$, and $A^4$, and use them to formulate a conjecture for $A^n$. Then do not stop after checking one more case: assume the formula is true for $n$, multiply by $A$, and explain why you obtain exactly the formula for $n+1$.
-
-> **Why this exercise:** teaches how to recognize a pattern and formulate a generalization from several computations.
-
-### Exercise 13. A Recurrence Written in Matrix Form
-Let
-
-$$
-F = 
-\begin{pmatrix}
-1 & 1 \\
-1 & 0 \\
-\end{pmatrix}.
-$$
-
-Compute $F^2$, $F^3$, $F^4$, and $F^5$. Compare the numbers obtained with the sequence
-
-$$
-0, 1, 1, 2, 3, 5, 8, \ldots
-$$
-
-and describe the relationship you observe. Then compute
-
-$$
-F 
-\begin{pmatrix}
-a \\
-b \\
-\end{pmatrix}
-$$
-
-and explain how this multiplication performs one recurrence step: it creates the sum of two consecutive terms and keeps one of them for the next step.
-
-> **Why this exercise:** shows the connection between matrix powers and a simple numerical recurrence.
-
-### Exercise 14. Rotation Matrices
-The matrix for a rotation through an angle $\theta$ is
-
-$$
-R(\theta) = 
-\begin{pmatrix}
-\cos\theta & -\sin\theta \\
-\sin\theta & \cos\theta \\
-\end{pmatrix}.
-$$
-
-Compute $R(\alpha)R(\beta)$ and, using the angle-sum formulas for sine and cosine, show that
-
-$$
-R(\alpha)R(\beta) = R(\alpha+\beta).
-$$
-
-Explain the result geometrically.
-
-> **Why this exercise:** shows the consistency between matrix algebra and the geometry of composing rotations.
-
-### Exercise 15. Associativity of Multiplication and Different Calculation Paths
-Given
-
-$$
-A = 
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1 \\
-\end{pmatrix}, \quad B = 
-\begin{pmatrix}
-1 & 0 \\
-2 & 1 \\
--1 & 3 \\
-\end{pmatrix}, \quad C = 
-\begin{pmatrix}
-2 & 1 \\
-0 & -1 \\
-\end{pmatrix}.
-$$
-
-Compute $(AB)C$ and $A(BC)$. Compare the results and the number of intermediate operations. Explain what associativity of matrix multiplication means in this example.
-
-> **Why this exercise:** reinforces associativity by comparing two mathematically equivalent calculation paths.
+**Explanation:** Matrix dimensions specify the grid layout ($m \times n$), while double-subscript indexing $m_{ij}$ uniquely locates each entry by intersecting its horizontal row $i$ with its vertical column $j$.
